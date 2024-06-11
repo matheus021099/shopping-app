@@ -1,0 +1,5 @@
+root = true
+
+[*.{kt,kts}]
+indent_style = tab
+disabled_rules = max-line-length,import-ordering, no-wildcard-imports

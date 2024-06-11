@@ -1,0 +1,13 @@
+# Use an official Gradle image to build the backend
+FROM gradle:7.4.2-jdk11 as build
+WORKDIR /app
+COPY . .
+RUN gradle build -x test
+
+# Use an official OpenJDK image to run the backend
+FROM openjdk:11-jre-slim
+WORKDIR /app
+COPY --from=build /app/build/libs/*.jar app.jar
+
+# Run the backend service
+ENTRYPOINT ["java", "-jar", "app.jar"]

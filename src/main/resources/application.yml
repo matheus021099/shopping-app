@@ -1,0 +1,4 @@
+ebay:
+  clientId: your_ebay_client_id
+  clientSecret: your_ebay_client_secret
+  redirectUri: your_redirect_uri
