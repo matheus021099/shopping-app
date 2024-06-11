@@ -96,8 +96,10 @@ const Filters = ({ viewMode, onApplyFilters }) => {
     const sortField = Object.keys(filters.product.sort).find(key => filters.product.sort[key] !== null);
     const sortOrder = sortField ? filters.product.sort[sortField] : null;
 
+    const filterName = viewMode === 'Products' ? 'product' : viewMode.toLowerCase();
+
     onApplyFilters({
-      ...filters[viewMode.toLowerCase()],
+      ...filters[filterName],
       page: 0,
       size: 10,
       sortField,
